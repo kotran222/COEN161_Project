@@ -1,6 +1,6 @@
 {
     "scheme": "mongodb+srv://scuvolleyball",
-    "address": "your mongo address",
+    "address": "scumensvolleyball.6jeuc.mongodb.net",
     "defaultDatabase": "SCUMensVolleyball",
     "username": "scuvolleyball",
     "password": "scuvolleyball"

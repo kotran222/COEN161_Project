@@ -9,5 +9,6 @@ function submitForm(e) {
     console.log(email)
     console.log(name)
     console.log(comment)
+    document.querySelector(".post-form").reset();
 }
 
