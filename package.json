@@ -1,0 +1,26 @@
+{
+  "name": "coen161_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotran222/COEN161_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kotran222/COEN161_Project/issues"
+  },
+  "homepage": "https://github.com/kotran222/COEN161_Project#readme",
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "mongodb": "^4.2.1",
+    "path-to-regexp": "^6.2.0",
+    "url": "^0.11.0"
+  }
+}
