@@ -1,12 +1,9 @@
-// const fetch = require("node-fetch");
-
-// const sendResponse = require("../../routes/utils/sendResponse");
-
 const API = {
     currentOffset: 0,
     pageSize: 10,
     initialize: () => {
       // API.listComments(API.currentOffset);
+      API.displayMessages();
     },
     handleResponse: (response) => {
       // return response.ok ? response.json() : sendResponse(response, response.status);
@@ -46,24 +43,25 @@ const API = {
           VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
           VIEWS.clearForm();
         });
-    },    
-    // getPreviousPage: () => {
-    //   const newOffset = Math.min(0, API.currentOffset - API.pageSize);
-  
-    //   VIEWS.clearCurrentPage();
-    //   API.listComments(newOffset).then(() => {
-    //     API.currentOffset = newOffset;
-    //   });
-    // },
-    // getNextPage: () => {
-    //   const newOffset = API.currentOffset + API.pageSize;
-  
-    //   VIEWS.clearCurrentPage();
-    //   API.listComments(newOffset).then(() => {
-    //     API.currentOffset = newOffset;
-    //   });
-    // },
-  };
+    },
+
+    displayMessages: () => {
+      return fetch("/comment/:comment", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: 'cors',
+        cache: 'default',
+      })
+      .then(API.handleResponse)
+      .then((messageResponse) => {
+        // for (const message of messageResponse.messages) {
+        VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
+        // }
+      });
+    },
+};
   
   API.initialize();
   

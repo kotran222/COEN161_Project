@@ -17,6 +17,9 @@ const CommentsCollection = (client) => {
         document;
       });
     },
+    getComment: () => {
+      return collection.find();
+    },
     getCommentByName: (name) => {
       return collection.findOne({
         normalized: normalizeComment(name),

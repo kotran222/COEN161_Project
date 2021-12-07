@@ -34,17 +34,31 @@ const VIEWS = {
       }
     },
     createCommentElement: (name, comment, email) => {
-      const dataList = document.querySelector("dl");
-      const dataName = document.createElement("dn");
-      const dataComment = document.createElement("dc");
+      const dataList = document.querySelector(".comment-container");
+      const dataName = document.createElement("p");
+      const dataComment = document.createElement("p");
+      const dataEmail = document.createElement("p");
   
-      dataName.textContent = name;
-      dataComment.textContent = comment;
-      dataEmail.textContent = email;
+      // dataName.textContent = name;
+      // dataComment.textContent = comment;
+      // dataEmail.textContent = email;
+      dataName.innerHTML = name;
+      dataComment.innerHTML = comment;
+      dataEmail.innerHTML = email;
   
-      // dataList.appendChild(dataName);
-      // dataList.appendChild(dataComment);
+      dataList.appendChild(dataName);
+      dataList.appendChild(dataComment);
+      dataList.appendChild(dataEmail);
     },
+
+    // displayCommentElems: (name, comment, email) => {
+    //   let p_tag = document.createElement("p");
+    //   //const text = document.createTextNode("Tutorix is the best e-learning platform");
+    //   const commentSection = document.querySelector(".comment-container").appendChild(p_tag);
+    //   commentSection.innerHTML = 
+      
+    // },
+
     // setPaginationButtons: (pagination) => {
     //   document.querySelector("#next-page-button").disabled =
     //     !pagination.hasNextPage;
@@ -82,6 +96,10 @@ const VIEWS = {
       if (name && comment && email) {
         API.createMessage(name, comment, email);
       }
+
+      // if (name && comment && email) {
+      //   API.displayMessages(name, comment, email);
+      // }
     },
   };
   
