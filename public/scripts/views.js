@@ -33,13 +33,14 @@ const VIEWS = {
         child.remove();
       }
     },
-    createCommentElement: (name, comment) => {
+    createCommentElement: (name, comment, email) => {
       const dataList = document.querySelector("dl");
       const dataName = document.createElement("dn");
       const dataComment = document.createElement("dc");
   
       dataName.textContent = name;
       dataComment.textContent = comment;
+      dataEmail.textContent = email;
   
       // dataList.appendChild(dataName);
       // dataList.appendChild(dataComment);
@@ -60,9 +61,11 @@ const VIEWS = {
       event.preventDefault();
       const nameElement = document.querySelector("#name");
       const commentElement = document.querySelector("#comment");
+      const emailElement = document.querySelector("#email");
   
       const name = nameElement.value.trim();
       const comment = commentElement.value.trim();
+      const email = emailElement.value.trim();
   
       if (!name) {
         VIEWS.addErrorState(nameElement);
@@ -71,9 +74,13 @@ const VIEWS = {
       if (!comment) {
         VIEWS.addErrorState(commentElement);
       }
+
+      if (!email) {
+        VIEWS.addErrorState(emailElement);
+      }
   
-      if (name && comment) {
-        API.createMessage(name, comment);
+      if (name && comment && email) {
+        API.createMessage(name, comment, email);
       }
     },
   };

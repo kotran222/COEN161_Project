@@ -14,6 +14,9 @@ const routes = {
   "/comment": {
     POST: createComment,
   },
+  // "${name}/comments": {
+  //   POST: createComment,
+  // },
   "/comment/:comment": {
     GET: readComment,
     // PUT: updateComment,

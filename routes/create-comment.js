@@ -4,9 +4,11 @@ const sendResponse = require("./utils/sendResponse");
 
 const createComment = (req, res) => {
   return readBody(req).then((requestBody) => {
+    console.log(requestBody);
     const body = JSON.parse(requestBody);
 
     if (!body.email || !body.name || !body.comment) {
+      console.log("body is missing stuff code 400")
       return sendResponse(
         res,
         400,
@@ -15,49 +17,74 @@ const createComment = (req, res) => {
     }
 
     const message = {
-      email: body.email,
       name: body.name,
-      comments: [body.comment],
+      comment: body.comment,
+      email: body.email,
     };
 
-    if (body.tags) {
-      if (validate.isTagsArray(body.tags)) {
-        message.tags = body.tags;
-      } else {
-        return sendResponse(
-          res,
-          400,
-          "tags field must be an array of strings"
-        );
-      }
-    }
+    // if (body.tags) {
+    //   if (validate.isTagsArray(body.tags)) {
+    //     message.tags = body.tags;
+    //   } else {
+    //     console.log("tag 400 code")
+    //     return sendResponse(
+    //       res,
+    //       400,
+    //       "tags field must be an array of strings"
+    //     );
+    //   }
+    // }
 
     if (body.email) {
       if (validate.isEmail(body.email)) {
         message.email = body.email;
       } else {
+        console.log("email 400 code")
         return sendResponse(res, 400, "email field is not properly formatted");
       }
     }
 
+    // if (body.name) {
+    //   if (validate.isName(body.name)) {
+    //     message.name = body.name;
+    //   } else {
+    //     console.log("name 400 code")
+    //     return sendResponse(res, 400, "name field must be a string");
+    //   }
+    // }
+
     if (body.name) {
-      if (validate.isName(body.name)) {
-        message.name = name;
-      } else {
-        return sendResponse(res, 400, "name field must be a string");
-      }
+      // console.log("is body name a string: " + typeof(body.name))
+      message.name = body.name;
+    } else {
+      console.log("name 400 code")
+      return sendResponse(res, 400, "name field must be a string");
     }
 
-    if (body.comments) {
-      if (validate.isCommentsArray(body.comments)) {
-        message.comments = body.comments;
-      } else {
-        return sendResponse(
-          res,
-          400,
-          "comments field must be an array of strings"
-        );
-      }
+
+    // if (body.comment) {
+    //   if (validate.isComment(body.comment)) {
+    //     message.comment = body.comment;
+    //   } else {
+    //     console.log("comment 400 code")
+    //     return sendResponse(
+    //       res,
+    //       400,
+    //       "comment field must be a string"
+    //     );
+    //   }
+    // }
+
+    if (body.comment) {
+      // console.log("is body comment a string: " + typeof(body.comment))
+      message.comment = body.comment;
+    } else {
+      console.log("comment 400 code")
+      return sendResponse(
+        res,
+        400,
+        "comment field must be a string"
+      );
     }
 
     return req.app.db.createComment(message).then((newMessage) => {

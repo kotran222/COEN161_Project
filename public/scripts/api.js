@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
 
 // const sendResponse = require("../../routes/utils/sendResponse");
 
@@ -10,8 +10,9 @@ const API = {
     },
     handleResponse: (response) => {
       // return response.ok ? response.json() : sendResponse(response, response.status);
-      console.log(response)
-      return response.ok ? response.json() : Promise.reject(response.status);      
+      console.log(response);
+      console.log(response.ok);
+      return response.ok ? response.json() : Promise.reject(response.status);  
     },
     // listComments: (offset) => {
     //   return fetch(`/comments?offset=${offset}`)
@@ -24,10 +25,11 @@ const API = {
     //       // VIEWS.setPaginationButtons(messagesResponse.pagination);
     //     });
     // },
-    createMessage: (name, comment) => {
-      console.log("name" + name)
-      console.log("comment" + comment)
-      return fetch(`${name}/comments`, {
+    createMessage: (name, comment, email) => {
+      console.log("email: " + email)
+      console.log("name: " + name)
+      console.log("comment: " + comment)
+      return fetch("/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,12 +37,13 @@ const API = {
         body: JSON.stringify({
           name: name,
           comment: comment,
+          email: email,
         }),
       })
         .then(API.handleResponse)
         .then((messageResponse) => {
-          console.log("messageResponse" + messageResponse)
-          VIEWS.createCommentElement(messageResponse.name, messageResponse.comment);
+          console.log("messageResponse: " + messageResponse)
+          VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
           VIEWS.clearForm();
         });
     },    

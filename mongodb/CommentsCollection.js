@@ -7,12 +7,11 @@ const FIND_LIMIT = 10;
 const CommentsCollection = (client) => {
   const collection = client.db("SCUMensVolleyball").collection("comments");
   return {
-    createComment: ({ email, name, comments, tags }) => {
+    createComment: ({ email, name, comment }) => {
       const document = CommentDocument({
         email,
         name,
-        comments,
-        tags,
+        comment,
       });
       return collection.insertOne(document).then(() => {
         document;
