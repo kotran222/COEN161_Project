@@ -35,36 +35,31 @@ const VIEWS = {
     },
     createCommentElement: (name, comment, email) => {
       const dataList = document.querySelector(".comment-container");
-      const dataName = document.createElement("p");
+      const section = document.createElement("section");
+      const dataID = document.createElement("p");
       const dataComment = document.createElement("p");
-      const dataEmail = document.createElement("p");
+
+      const class_att = document.createAttribute("class");
+      class_att.value = "comment-posting";
+      section.setAttributeNode(class_att);
+
+      const id_att = document.createAttribute("class");
+      id_att.value = "id-style";
+      dataID.setAttributeNode(id_att);
+
+      const comment_att = document.createAttribute("class");
+      comment_att.value = "comment-style";
+      dataComment.setAttributeNode(comment_att);
   
-      // dataName.textContent = name;
-      // dataComment.textContent = comment;
-      // dataEmail.textContent = email;
-      dataName.innerHTML = name;
+      dataID.innerHTML = name + " (" + email + ")";
       dataComment.innerHTML = comment;
-      dataEmail.innerHTML = email;
   
-      dataList.appendChild(dataName);
-      dataList.appendChild(dataComment);
-      dataList.appendChild(dataEmail);
+      section.appendChild(dataID);
+      section.appendChild(dataComment);
+      // dataList.appendChild(dataID);
+      // dataList.appendChild(dataComment);
+      dataList.appendChild(section);
     },
-
-    // displayCommentElems: (name, comment, email) => {
-    //   let p_tag = document.createElement("p");
-    //   //const text = document.createTextNode("Tutorix is the best e-learning platform");
-    //   const commentSection = document.querySelector(".comment-container").appendChild(p_tag);
-    //   commentSection.innerHTML = 
-      
-    // },
-
-    // setPaginationButtons: (pagination) => {
-    //   document.querySelector("#next-page-button").disabled =
-    //     !pagination.hasNextPage;
-    //   document.querySelector("#previous-page-button").disabled =
-    //     !pagination.hasPreviousPage;
-    // },
     addErrorState: (element) => {
       element.classList.add("error");
     },
@@ -95,11 +90,8 @@ const VIEWS = {
   
       if (name && comment && email) {
         API.createMessage(name, comment, email);
+        location.reload();
       }
-
-      // if (name && comment && email) {
-      //   API.displayMessages(name, comment, email);
-      // }
     },
   };
   

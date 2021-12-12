@@ -1,0 +1,104 @@
+html {
+  background-color: rgb(226, 225, 225);
+}
+
+#sc-logo {
+  align-self: left;
+}
+
+/* Home Page Beginning */
+.comment-container {
+  display: grid;
+  text-align: left;
+  row-gap: 20px;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.comment-posting {
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+.id-style {
+  font-weight: bold;
+  font-size: large;
+  margin-left: 10px;
+}
+
+.comment-style {
+  font-size: large;
+  padding-left: 35px;
+}
+
+.comment-section h1 {
+  text-align: center;
+}
+
+.comment-button {
+  border-radius: 175px;
+  border: 2px solid #5c1a10;
+  background-color: transparent;
+}
+/* Home Page Ending */
+
+/* Donate Page (start) */
+#team-pic {
+  align-self: center;
+}
+
+.donate-main {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.donate-button {
+  border-radius: 175px;
+  border: 2px solid #5c1a10;
+  background-color: transparent;
+  width: 175px;
+}
+.donate-button a {
+  text-decoration: none;
+  color: #5c1a10;
+  justify-self: center;
+}
+
+.bottom-image-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* Donate Page (end) */
+
+/* Roster Page (start) */
+
+.players {
+  display: flex;
+  flex-flow: column;
+}
+
+.player {
+  display: flex;
+  flex-flow: row;
+  padding-top: 40px;
+}
+
+.player-info {
+  display: flex;
+  flex-flow: column;
+  padding-top: 30px;
+}
+
+#default-player {
+  width: 15rem;
+  height: 15rem;
+}
+/* Roster Page (end) */ ;

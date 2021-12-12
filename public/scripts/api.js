@@ -39,14 +39,14 @@ const API = {
       })
         .then(API.handleResponse)
         .then((messageResponse) => {
-          console.log("messageResponse: " + messageResponse)
-          VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
+          // console.log("messageResponse: " + messageResponse)
+          // VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
           VIEWS.clearForm();
         });
     },
 
     displayMessages: () => {
-      return fetch("/comment/:comment", {
+      return fetch("/comments", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -56,8 +56,16 @@ const API = {
       })
       .then(API.handleResponse)
       .then((messageResponse) => {
-        // for (const message of messageResponse.messages) {
-        VIEWS.createCommentElement(messageResponse.name, messageResponse.comment, messageResponse.email);
+          console.log("API JS Message Response " + Object.keys(messageResponse))
+          for(let key in messageResponse){
+            console.log("message response " + Object.keys(messageResponse[key].comments))
+            let collection_entry = messageResponse[key].comments;
+            for(let object_index in collection_entry){
+              console.log("collection entry" + Object.keys(collection_entry[object_index]))
+              VIEWS.createCommentElement(collection_entry[object_index].name, collection_entry[object_index].comment, collection_entry[object_index].email);
+            }
+          }
+
         // }
       });
     },

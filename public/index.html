@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <img id="sc-logo" src="../image/sc-logo.jpeg" />
     <title>SCU Men's Volleyball Club</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,10 +12,16 @@
   <body>
     <header>
       <p>SCU MEN'S VOLLEYBALL CLUB</p>
+      <nav class="navbar">
+        <a>HOME</a>
+        <a href="donate/index.html">DONATE</a>
+        <a href="roster/index.html">ROSTER</a>
+      </nav>
     </header>
     <section>
       <h1>THE TEAM</h1>
       <iframe
+        class="video"
         width="560"
         height="315"
         src="https://www.youtube.com/embed/11DTV9DpJho"
@@ -23,6 +30,9 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+
+      <img id="club-logo" src="../image/sc-clubVB-logo.jpeg" />
+
       <form class="post-form" method="POST">
         <h1>Create a Post</h1>
         <label for="email">Email*</label>
@@ -52,13 +62,13 @@
           required
         />
 
-        <button class="button" id="submit" type="submit" name="Submit">
+        <button class="comment-button" id="submit" type="submit" name="Submit">
           POST COMMENT
         </button>
       </form>
-      <section class="comment-container">
+      <section class="comment-section">
         <h1>PREVIOUS COMMENTS</h1>
-        <dl></dl>
+        <section class="comment-container"></section>
       </section>
     </section>
 

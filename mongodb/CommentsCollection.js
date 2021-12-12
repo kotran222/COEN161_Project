@@ -17,19 +17,15 @@ const CommentsCollection = (client) => {
         document;
       });
     },
-    getComment: () => {
-      return collection.find();
-    },
-    getCommentByName: (name) => {
-      return collection.findOne({
-        normalized: normalizeComment(name),
+    getAllComments: () => {
+      return collection      
+      .find()
+      .toArray()
+      .then((cursor) => {
+        console.log(`getAllComments::returning ${cursor.length} items`);
+        return { comments: cursor };
       });
     },
-    // updateCommentByName: (name) => {
-    //   /**
-    //    * code this one too :D
-    //    */
-    // },
     dropAll: () => {
       return collection.deleteMany();
     },
