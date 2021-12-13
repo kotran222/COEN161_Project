@@ -2,11 +2,7 @@ const pathToRegexp = require("path-to-regexp");
 
 const createComment = require("./routes/create-comment");
 const readComment = require("./routes/read-comment");
-// const updateComment = require("./routes/update-comment");
-// const deleteComment = require("./routes/delete-comment");
-const listComments = require("./routes/list-comments");
 const public = require("./routes/public");
-
 const sendResponse = require("./routes/utils/sendResponse");
 
 const routes = {
@@ -53,11 +49,9 @@ const routeRequest = function (req) {
       }
     }
   }
-
   for (const [param, value] of Object.entries(bestMatch.params)) {
     req.params[param] = value;
   }
-
   return bestMatch.handler;
 };
 

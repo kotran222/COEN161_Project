@@ -4,25 +4,11 @@ const fs = require("fs/promises");
 const http = require("http");
 const routeRequest = require("./route-request")
 const sendResponse = require("./routes/utils/sendResponse");
-// const uri = "mongodb+srv://scuvolleyball:<password>@scumensvolleyball.6jeuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const CommentsCollection = require("./mongodb/commentsCollection");
 
 fs.readFile(path.join(__dirname, "mongo.config.json"), "utf-8")
   .then((contents) => {
     const mongoConfig = JSON.parse(contents);
-
-    // const uri = [
-    //   mongoConfig.scheme,
-    //   `${mongoConfig.username}:${mongoConfig.password}`,
-    //   `@${mongoConfig.address}/${mongoConfig.defaultDatabase}`,
-    //   "?retryWrites=true&w=majority",
-    // ].join("");
-
-    // const client = new MongoClient(uri, {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true,
-    // });
 
     const uri = "mongodb+srv://scuvolleyball:scuvolleyball@scumensvolleyball.6jeuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { 
@@ -65,13 +51,7 @@ fs.readFile(path.join(__dirname, "mongo.config.json"), "utf-8")
       }
       
     });
-// initialize server
-    server.listen(8080);
+    // initialize server
+    const port = process.argv[2];
+    server.listen(port);
   });
-
-
-  // client.connect(err => {
-  //   const collection = client.db("test").collection("devices");
-  //   // perform actions on the collection object
-  //   client.close();
-  // });

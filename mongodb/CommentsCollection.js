@@ -26,12 +26,7 @@ const CommentsCollection = (client) => {
         return { comments: cursor };
       });
     },
-    dropAll: () => {
-      return collection.deleteMany();
-    },
-
   };
-    
 };
 
 module.exports = CommentsCollection;
