@@ -1,12 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Fuzzy+Bubbles&display=swap");
+* {
+  font-family: "Fuzzy Bubbles", cursive;
+}
+
 html {
   background-color: rgb(226, 225, 225);
 }
 
+/* NAV BAR BEGIN */
 #sc-logo {
   align-self: left;
+  width: 65px;
 }
 
+.top-banner {
+  font-family: "Caveat", cursive;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.top-logo {
+  display: flex;
+  flex-flow: row;
+  column-gap: 20px;
+}
+
+.top-logo h1 {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.top-logo h1 a {
+  text-decoration: none;
+  color: #5c1a10;
+}
+
+.top-logo h1 a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.directory {
+  display: flex;
+  flex-flow: row;
+  column-gap: 20px;
+  align-items: flex-start;
+  margin-top: 35px;
+  margin-right: 20px;
+}
+
+.directory a {
+  text-decoration: none;
+  color: #5c1a10;
+}
+
+.directory a:hover {
+  text-decoration: underline;
+  color: black;
+}
+/* NAV BAR END */
+
 /* Home Page Beginning */
+.home-container {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-container h1 {
+  color: #5c1a10;
+}
+
+.post-form {
+  display: grid;
+  justify-self: center;
+  gap: 15px;
+}
+
+.post-form label {
+  font-size: larger;
+}
+
 .comment-container {
   display: grid;
   text-align: left;
@@ -17,6 +93,8 @@ html {
   display: flex;
   justify-content: center;
   align-self: center;
+  width: 830px;
+  height: 395px;
 }
 
 .comment-posting {
@@ -43,7 +121,15 @@ html {
 .comment-button {
   border-radius: 175px;
   border: 2px solid #5c1a10;
-  background-color: transparent;
+  background-color: #5c1a10;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.comment-button:hover {
+  zoom: 105%;
+  color: #5c1a10;
+  background-color: white;
 }
 /* Home Page Ending */
 
@@ -61,21 +147,18 @@ html {
 .donate-button {
   border-radius: 175px;
   border: 2px solid #5c1a10;
-  background-color: transparent;
-  width: 175px;
-}
-.donate-button a {
+  background-color: #5c1a10;
   text-decoration: none;
+  color: white;
+  font-size: large;
+  padding: 10px;
+}
+
+.donate-button:hover {
+  zoom: 105%;
   color: #5c1a10;
-  justify-self: center;
+  background-color: white;
 }
-
-.bottom-image-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-}
-
 /* Donate Page (end) */
 
 /* Roster Page (start) */
@@ -95,10 +178,27 @@ html {
   display: flex;
   flex-flow: column;
   padding-top: 30px;
+  padding-left: 30px;
+}
+.player-info h1 {
+  color: #5c1a10;
+  font-weight: bold;
+}
+
+.player-info p {
+  color: #5c1a10;
 }
 
 #default-player {
   width: 15rem;
   height: 15rem;
 }
-/* Roster Page (end) */ ;
+/* Roster Page (end) */
+
+/* Footer Start */
+.bottom-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/* Footer End */
