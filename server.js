@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const http = require("http");
 const routeRequest = require("./route-request")
 const sendResponse = require("./routes/utils/sendResponse");
-const CommentsCollection = require("./mongodb/commentsCollection");
+const CommentsCollection = require("./mongodb/CommentsCollection");
 
 fs.readFile(path.join(__dirname, "mongo.config.json"), "utf-8")
   .then((contents) => {
